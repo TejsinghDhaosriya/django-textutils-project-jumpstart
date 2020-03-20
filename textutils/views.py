@@ -1,18 +1,19 @@
+# I have created this file - Harry
 from django.http import HttpResponse
 from django.shortcuts import render
 
-def index(request): 
-    params={'name':'ram','value':12}
-    return render(request,"index.html",params)
 
-    #return HttpResponse("hey tej")
+def index(request):
+    return render(request, 'index.html')
 
-def about(request):
-    return HttpResponse("aabout ")
 
-def help(request):
-    tej=request.GET.get("text","default")
-    print(tej)
-    params={'name':tej,'value':24}
-    #return HttpResponse("done")
-    return render(request,"index.html",params)
+def analyze(request):
+    #Get the text
+    djtext = request.POST.get('text', 'default')
+
+    # Check checkbox values
+    removepunc = request.POST.get('removepunc', 'off')
+    fullcaps = request.POST.get('fullcaps', 'off')
+    newlineremover = request.POST.get('newlineremover', 'off')
+    extraspaceremover = request.POST.get('extraspaceremover', 'off')
+    numberremover = request.POST.get('numberremover','off')
