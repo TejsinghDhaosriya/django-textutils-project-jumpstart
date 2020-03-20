@@ -62,4 +62,29 @@
   </button>
 </div>
 
+
+<div class="container">
+
+    <form action='/analyze' onsubmit="return validate()" method='post'> {% csrf_token %}
+  
+  
+  
+    <div class="form-group">
+      <h3><span id="typed"></span></h3>
+  
+      <textarea class="form-control" name='text' id="exampleFormControlTextarea1" rows="9"></textarea>
+      
+      <!-- Word Counter -->
+      <p>
+      <span id="wordCount">0</span> Characters
+      <script type="text/javascript">
+          var exampleFormControlTextarea1 = document.getElementById("exampleFormControlTextarea1");
+          var wordCount = document.getElementById("wordCount");
+  
+          exampleFormControlTextarea1.addEventListener("keyup",function(){
+          var characters = exampleFormControlTextarea1.value.split('');
+            wordCount.innerText = characters.length;
+          });
+      </script>
+      
    
